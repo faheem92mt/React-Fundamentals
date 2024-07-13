@@ -6,6 +6,10 @@ import ReactDOM from 'react-dom/client'
 
 import './index.css'
 
+const author = 'Dr. Ali AlBarghouthi'
+const title = 'Heart Therapy'
+const img = './images/HH96.png'
+
 // const Greeting = () => {
 //   return (
 //     <div>
@@ -32,23 +36,32 @@ const BookList = () => {
 const Book = () => {
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img src={img} alt={title}></img>
+      <h2>{title}</h2>
+      <h4>{author}</h4>
     </article>
   )
 }
 
-const Image = () => (
-  <img
-    src="https://www.dakwahbookstore.com/wp-content/uploads/2018/05/HH96.png"
-    alt="Heart Therapy"
-  ></img>
-)
-const Title = () => <h2>Heart Therapy</h2>
-const Author = () => {
-  return <h4>Dr. Ali AlBarghouthi</h4>
-}
+// const Book = () => {
+//   return (
+//     <article className="book">
+//       <Image />
+//       <Title />
+//       <Author />
+//     </article>
+//   )
+// }
+
+// const Image = () => <img src="./images/HH96.png" alt="Heart Therapy"></img>
+// const Title = () => <h2>Heart Therapy</h2>
+// const Author = () => {
+//   return (
+//     <h4 style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '0.5rem' }}>
+//       Dr. Ali AlBarghouthi
+//     </h4>
+//   )
+// }
 
 // const Person = () => {
 //   return <h1>Faheem Ibn Habib</h1>
