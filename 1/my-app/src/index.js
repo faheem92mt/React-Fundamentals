@@ -6,9 +6,23 @@ import ReactDOM from 'react-dom/client'
 
 import './index.css'
 
-const author = 'Dr. Ali AlBarghouthi'
-const title = 'Heart Therapy'
-const img = './images/HH96.png'
+const bookOne = {
+  author: 'Dr. Ali AlBarghouthi',
+  title: 'Heart Therapy',
+  img: './images/HH96.png',
+}
+
+const bookTwo = {
+  author: 'Dr. Tarek as Suwaidan',
+  title: '60 Great Women Enshrined in Islamic History',
+  img: './images/60.jpg',
+}
+
+const bookThree = {
+  author: 'Nihad Sayyid',
+  title: 'Keys to a Successful Marital Life',
+  img: './images/keys.jpg',
+}
 
 // const Greeting = () => {
 //   return (
@@ -23,22 +37,41 @@ const img = './images/HH96.png'
 const BookList = () => {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book author={bookOne.author} title={bookOne.title} img={bookOne.img}>
+        {/* <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+          repudiandae inventore eos qui animi sed iusto alias eius ea sapiente.
+        </p>
+        <button>click me</button> */}
+      </Book>
+      <Book author={bookTwo.author} title={bookTwo.title} img={bookTwo.img} />
+      <Book
+        author={bookThree.author}
+        title={bookThree.title}
+        img={bookThree.img}
+      />
     </section>
   )
 }
 
-const Book = () => {
+// const Book = (props) => {
+//   return (
+//     <article className="book">
+//       <img src={props.img} alt={props.title}></img>
+//       <h2>{props.title}</h2>
+//       <h4>{props.author}</h4>
+//     </article>
+//   )
+// }
+
+const Book = (props) => {
+  const { img, title, author, children } = props
   return (
     <article className="book">
       <img src={img} alt={title}></img>
       <h2>{title}</h2>
       <h4>{author}</h4>
+      {children}
     </article>
   )
 }
