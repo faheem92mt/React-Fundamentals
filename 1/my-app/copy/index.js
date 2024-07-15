@@ -6,26 +6,23 @@ import ReactDOM from 'react-dom/client'
 
 import './index.css'
 
-const books = [
-  {
-    author: 'Dr. Ali AlBarghouthi',
-    title: 'Heart Therapy',
-    img: './images/HH96.png',
-    id: 1,
-  },
-  {
-    author: 'Dr. Tarek as Suwaidan',
-    title: '60 Great Women Enshrined in Islamic History',
-    img: './images/60.jpg',
-    id: 2,
-  },
-  {
-    author: 'Nihad Sayyid',
-    title: 'Keys to a Successful Marital Life',
-    img: './images/keys.jpg',
-    id: 3,
-  },
-]
+const bookOne = {
+  author: 'Dr. Ali AlBarghouthi',
+  title: 'Heart Therapy',
+  img: './images/HH96.png',
+}
+
+const bookTwo = {
+  author: 'Dr. Tarek as Suwaidan',
+  title: '60 Great Women Enshrined in Islamic History',
+  img: './images/60.jpg',
+}
+
+const bookThree = {
+  author: 'Nihad Sayyid',
+  title: 'Keys to a Successful Marital Life',
+  img: './images/keys.jpg',
+}
 
 // const Greeting = () => {
 //   return (
@@ -37,26 +34,22 @@ const books = [
 //   )
 // }
 
-// const names = ['faheem', 'ibn', 'habib']
-// const fullName = names.map((name) => {
-//   // console.log(name)
-//   return <h1>{name}</h1>
-// })
-
 const BookList = () => {
   return (
     <section className="booklist">
-      {books.map((book) => {
-        // type #1 - props
-        // const { img, title, author, id } = book
-        // return <Book img={img} title={title} author={author} key={id} />
-
-        // type #2 - props.book
-        // return <Book book={book} key={book.id} />
-
-        // type #3 - props
-        return <Book {...book} key={book.id} />
-      })}
+      <Book author={bookOne.author} title={bookOne.title} img={bookOne.img}>
+        {/* <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
+          repudiandae inventore eos qui animi sed iusto alias eius ea sapiente.
+        </p>
+        <button>click me</button> */}
+      </Book>
+      <Book author={bookTwo.author} title={bookTwo.title} img={bookTwo.img} />
+      <Book
+        author={bookThree.author}
+        title={bookThree.title}
+        img={bookThree.img}
+      />
     </section>
   )
 }
@@ -72,7 +65,6 @@ const BookList = () => {
 // }
 
 const Book = (props) => {
-  // const { img, title, author, children } = props.book
   const { img, title, author, children } = props
   return (
     <article className="book">
