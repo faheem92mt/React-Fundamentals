@@ -44,17 +44,9 @@ const books = [
 // })
 
 const BookList = () => {
-  const someValue = 'ShakeAndBake'
-
-  const displayValue = () => {
-    console.log(someValue)
-  }
-
-  const getBook = (id) => {}
-
   return (
     <section className="booklist">
-      {/* <EventExamples /> */}
+      <EventExamples />
       {books.map((book) => {
         // type #1 - props
         // const { img, title, author, id } = book
@@ -64,22 +56,59 @@ const BookList = () => {
         // return <Book book={book} key={book.id} />
 
         // type #3 - props
-        return <Book {...book} key={book.id} displayValue={displayValue} />
+        return <Book {...book} key={book.id} />
       })}
+    </section>
+  )
+}
+
+const EventExamples = () => {
+  // const handleFormInput = (e) => {
+  //   console.log(e.target)
+  //   console.log(e.target.name)
+  //   console.log(e.target.value)
+  //   console.log('handle form input')
+  // }
+  // const handleButtonClick = () => {
+  //   alert('handle button input')
+  // }
+
+  // const handleFormSubmission = (e) => {
+  //   e.preventDefault()
+  //   console.log('form submitted')
+  // }
+  return (
+    <section>
+      {/* <form onSubmit={handleFormSubmission}> */}
+      <form>
+        <h2>Typical Form</h2>
+        <input
+          type="text"
+          name="example"
+          // onChange={handleFormInput}
+          onChange={(e) => console.log(e.target.value)}
+          style={{ margin: '1rem 0' }}
+        />
+        <button type="submit">submit</button>
+        <div>
+          {/* type = "button" -> will not submit the form */}
+          <button onClick={() => console.log('click me')} type="button">
+            Click Me
+          </button>
+        </div>
+      </form>
     </section>
   )
 }
 
 const Book = (props) => {
   // const { img, title, author, children } = props.book
-  const { img, title, author, displayValue, children } = props
+  const { img, title, author, children } = props
   return (
     <article className="book">
       <img src={img} alt={title}></img>
       <h2>{title}</h2>
       <h4>{author}</h4>
-      <button onClick={() => console.log(title)}>click me</button>
-      <button onClick={displayValue}>Display Value</button>
       {children}
     </article>
   )
