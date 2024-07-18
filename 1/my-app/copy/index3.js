@@ -5,8 +5,27 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import './index.css'
-import { books } from './books'
-import Book from './Book'
+
+const books = [
+  {
+    author: 'Dr. Ali AlBarghouthi',
+    title: 'Heart Therapy',
+    img: './images/HH96.png',
+    id: 1,
+  },
+  {
+    author: 'Dr. Tarek as Suwaidan',
+    title: '60 Great Women Enshrined in Islamic History',
+    img: './images/60.jpg',
+    id: 2,
+  },
+  {
+    author: 'Nihad Sayyid',
+    title: 'Keys to a Successful Marital Life',
+    img: './images/keys.jpg',
+    id: 3,
+  },
+]
 
 // const Greeting = () => {
 //   return (
@@ -31,10 +50,10 @@ const BookList = () => {
   //   console.log(someValue)
   // }
 
-  // const getBook = (id) => {
-  //   const book = books.find((book) => book.id === id)
-  //   console.log(book)
-  // }
+  const getBook = (id) => {
+    const book = books.find((book) => book.id === id)
+    console.log(book)
+  }
 
   // gotcha -
   // getBook(2)
@@ -51,9 +70,29 @@ const BookList = () => {
         // return <Book book={book} key={book.id} />
 
         // type #3 - props
-        return <Book {...book} key={book.id} />
+        return <Book {...book} key={book.id} getBook={getBook} />
       })}
     </section>
+  )
+}
+
+const Book = (props) => {
+  // const { img, title, author, children } = props.book
+  const { id, img, title, author, getBook, children } = props
+
+  const getSingleBook = () => {
+    getBook(id)
+  }
+
+  return (
+    <article className="book">
+      <img src={img} alt={title}></img>
+      <h2>{title}</h2>
+      <h4>{author}</h4>
+      <button onClick={() => console.log(title)}>click me</button>
+      <button onClick={getSingleBook}>Display Value</button>
+      {children}
+    </article>
   )
 }
 
