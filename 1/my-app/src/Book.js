@@ -1,6 +1,6 @@
 const Book = (props) => {
   // const { img, title, author, children } = props.book
-  const { img, title, author, id } = props
+  const { img, title, author, number } = props
 
   // const getSingleBook = () => {
   //   getBook(id)
@@ -8,7 +8,9 @@ const Book = (props) => {
 
   return (
     <article className="book">
-      <p>{id}</p>
+      <span className="number">{`# ${number + 1} `}</span>
+      <br />
+      <br />
       <img src={img} alt={title}></img>
       <h2>{title}</h2>
       <h4>{author}</h4>

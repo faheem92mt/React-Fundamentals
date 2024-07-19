@@ -40,20 +40,23 @@ const BookList = () => {
   // getBook(2)
 
   return (
-    <section className="booklist">
-      {/* <EventExamples /> */}
-      {books.map((book) => {
-        // type #1 - props
-        // const { img, title, author, id } = book
-        // return <Book img={img} title={title} author={author} key={id} />
+    <>
+      <h1>Dakwah Corner Bookstore</h1>
+      <section className="booklist">
+        {/* <EventExamples /> */}
+        {books.map((book, index) => {
+          // type #1 - props
+          // const { img, title, author, id } = book
+          // return <Book img={img} title={title} author={author} key={id} />
 
-        // type #2 - props.book
-        // return <Book book={book} key={book.id} />
+          // type #2 - props.book
+          // return <Book book={book} key={book.id} />
 
-        // type #3 - props
-        return <Book {...book} key={book.id} />
-      })}
-    </section>
+          // type #3 - props
+          return <Book {...book} number={index} key={book.id} />
+        })}
+      </section>
+    </>
   )
 }
 
