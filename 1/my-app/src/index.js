@@ -95,7 +95,7 @@ const BookList = () => {
 // }
 
 // const Message = () => {
-//   return <p>This is my message1</p>
+//   return <p>This is my message2</p>
 // }
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
